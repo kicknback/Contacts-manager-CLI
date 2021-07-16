@@ -8,11 +8,11 @@ import java.util.List;
 
 public class AddContact {
 
-    public static void addContactName (List<String> contactName, Path path){
+    public static void addContactInfo (List<String> contactInfo, Path path){
         try {
-            Files.write(path, contactName, StandardOpenOption.APPEND);
+            Files.write(path, contactInfo, StandardOpenOption.APPEND);
         } catch (IOException e) {
-            System.out.println("Could not Wrtie to File at: " +path.toAbsolutePath());
+            System.out.println("Could not Write to File at: " +path);
         }
     }
 

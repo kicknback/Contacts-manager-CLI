@@ -7,7 +7,8 @@ public class Contacts {
     private String lastName;
     private String phoneNumber;
     private String address;
-    private List<String> contactInfo;
+    private List<String> contactInfo = new ArrayList<>();
+    private String stringifyContactInfo = "";
 
     public Contacts(String firstName, String lastName, String phoneNumber, String address) {
         this.firstName = firstName;
@@ -15,6 +16,8 @@ public class Contacts {
         this.phoneNumber = phoneNumber;
         this.address = address;
 
+        stringifyContactInfo = this.firstName + " | " + this.lastName + " | " + this.phoneNumber + " | " + this.address;
+        setContactInfo();
     }
 
     public Contacts() {
@@ -53,13 +56,10 @@ public class Contacts {
     }
 
     public List<String> getContactInfo() {
-        return contactInfo;
+        return this.contactInfo;
     }
 
     public void setContactInfo() {
-        contactInfo.add(this.firstName);
-        contactInfo.add(this.lastName);
-        contactInfo.add(this.phoneNumber);
-        contactInfo.add(this.address);
+        this.contactInfo.add(stringifyContactInfo);
     }
 }
