@@ -1,15 +1,20 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Contacts {
 
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String address;
+    private List<String> contactInfo;
 
     public Contacts(String firstName, String lastName, String phoneNumber, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
+
     }
 
     public Contacts() {
@@ -47,6 +52,14 @@ public class Contacts {
         this.address = address;
     }
 
+    public List<String> getContactInfo() {
+        return contactInfo;
+    }
 
-
+    public void setContactInfo() {
+        contactInfo.add(this.firstName);
+        contactInfo.add(this.lastName);
+        contactInfo.add(this.phoneNumber);
+        contactInfo.add(this.address);
+    }
 }
