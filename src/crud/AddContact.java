@@ -8,7 +8,7 @@ import java.util.List;
 
 public class AddContact {
 
-    public static void addContactInfo (List<String> contactInfo, Path path){
+    public static void addContactToFile (List<String> contactInfo, Path path){
         try {
             Files.write(path, contactInfo, StandardOpenOption.APPEND);
         } catch (IOException e) {
