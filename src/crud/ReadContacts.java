@@ -17,4 +17,10 @@ public class ReadContacts {
         }
         return tlist;
     }
+
+    public static void printOnePerLine (List<String> contactList){
+        for(String contact : contactList){
+            System.out.println(contact);
+        }
+    }
 }
