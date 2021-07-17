@@ -58,6 +58,7 @@ public class FileIO {
     public static List<String> addNewContactInput() {
         List<String> list = new ArrayList<>();
 
+        sc.nextLine();
         list.add(getString("Enter first name: "));
         list.add(getString("Enter last name: "));
         while(true) {
@@ -78,12 +79,7 @@ public class FileIO {
     }
 
     public static boolean isValidPhoneNumber(String input) {
-        if (input.length() == 12) {
-            return input.charAt(3) == '-' && input.charAt(7) == '-';
-        } else if (input.length() == 8) {
-            return input.charAt(3) == '-';
-        }
-        return false;
+        return input.matches("(?:\\d{3}-)?\\d{3}-\\d{4}");
     }
 
 }

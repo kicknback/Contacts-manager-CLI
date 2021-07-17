@@ -28,10 +28,14 @@ public class ContactsManagerApplication {
 //        AddContact.addContactInfo(josh.getContactInfo(), filePath);
 //        AddContact.addContactInfo(per.getContactInfo(), filePath);
 
-//        switch (FileIO.getMenuChoice()) {
-//            case 1:
-//
-//        }
+        switch (FileIO.getMenuChoice()) {
+            case 1:
+                System.out.println(readFile);
+                break;
+            case 2:
+                System.out.println(FileIO.addNewContactInput());
+                break;
+        }
 
     }
 
