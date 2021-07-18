@@ -33,8 +33,7 @@ public class ReadContacts {
         }
         String outputString = "";  // Can change to list of strings if needed
         for (String line : readFile) {
-            if (line.matches(String.format("(?i).*(%s).*\\|.*\\|.*", newStr))/*line.toLowerCase().contains(firstName)*/) {
-//                return "\n" + line;
+            if (line.matches(String.format("(?i).*(%s).*\\|.*\\|.*", newStr))) {
                 outputString += "\n" + line;
             }
         }
