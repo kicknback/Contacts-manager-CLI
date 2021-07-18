@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ReadContacts {
 
@@ -23,4 +24,24 @@ public class ReadContacts {
             System.out.println(contact);
         }
     }
+
+    public static String searchContact(String name, List<String> readFile) {
+        Scanner userValue = new Scanner(name);
+        String newStr = "";
+        while (userValue.hasNext()) {
+            newStr = newStr + "\\s*\\|?\\s*" + userValue.next();
+        }
+        String outputString = "";  // Can change to list of strings if needed
+        for (String line : readFile) {
+            if (line.matches(String.format("(?i).*(%s).*\\|.*\\|.*", newStr))/*line.toLowerCase().contains(firstName)*/) {
+//                return "\n" + line;
+                outputString += "\n" + line;
+            }
+        }
+        if (outputString.isEmpty()) {
+            return "That user was not found.";
+        }
+        return outputString;
+    }
+
 }

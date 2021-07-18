@@ -46,6 +46,7 @@ public class FileIO {
                     System.out.printf("\nThat number isn't between %s and %s..\n", min, max);
                     sc.nextLine();
                 } else {
+                    sc.nextLine();
                     return intValue;
                 }
             } else {
@@ -58,9 +59,8 @@ public class FileIO {
     public static List<String> addNewContactInput() {
         List<String> list = new ArrayList<>();
 
-        sc.nextLine();
-        list.add(getString("Enter first name: "));
-        list.add(getString("Enter last name: "));
+        list.add(getString("Enter first name"));
+        list.add(getString("Enter last name"));
         while(true) {
             String phone = getString("Enter phone number (area code optional) ex. 123-456-7899: ");
             if (isValidPhoneNumber(phone)) {
@@ -73,8 +73,8 @@ public class FileIO {
         return list;
     }
 
-    public static String getString(String soutValue) {
-        System.out.printf("\n%s: ", soutValue);
+    public static String getString(String prompt) {
+        System.out.printf("\n%s: ", prompt);
         return sc.nextLine();
     }
 
