@@ -23,15 +23,17 @@ public class ContactsManagerApplication {
             Path filePath = PathClass.getPath("src", "contacts.txt").toAbsolutePath();
             List<String> readFile = ReadContacts.readFromFile(filePath);
 
-            if (switchOptions(filePath, readFile)) {
+            boolean switchResult = switchOptions(filePath, readFile);
+            if (!switchResult) {
+                System.out.println("\nExiting program...");
+                continueProgram = false;
+            } else {
                 boolean moreSelections = FileIO.yesNo("Would you like to make another menu selection?");
                 if (!moreSelections) {
                     System.out.println("\nExiting program...");
                     continueProgram = false;
                 }
             }
-            System.out.println("\nExiting program...");
-            continueProgram = false;
         }
     }
 

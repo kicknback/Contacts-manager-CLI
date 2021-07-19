@@ -15,14 +15,4 @@ public class AddContact {
             System.out.println("Could not Write to File at: " + path);
         }
     }
-
-    public static void replaceCurrentContact (List<String> contactInfo, Path path) {
-        try {
-            Files.write(path, contactInfo);
-        } catch (IOException e) {
-            System.out.println("Could not update contact at: " + path);
-        }
-    }
-
-
 }
