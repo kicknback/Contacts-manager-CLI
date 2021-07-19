@@ -16,7 +16,8 @@ public class Contacts {
         this.phoneNumber = phoneNumber;
         this.address = address;
 
-        stringifyContactInfo = this.firstName + " | " + this.lastName + " | " + this.phoneNumber + " | " + this.address;
+        stringifyContactInfo = String.format("%-20s|\t%-20s|\t%-20s|\t%s", this.firstName, this.lastName, this.phoneNumber, this.address);
+
         setContactInfo();
     }
 

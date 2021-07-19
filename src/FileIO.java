@@ -7,7 +7,7 @@ public class FileIO {
     private static Scanner sc = new Scanner(System.in);
 
     public static int getMenuChoice() {
-        System.out.println("Please enter a number from the following:\n\n" +
+        System.out.println("\n*** MENU OPTIONS ***\n\n" +
                 "1 - View contacts\n" +
                 "2 - Add a new contact\n" +
                 "3 - Search for contact by name\n" +
