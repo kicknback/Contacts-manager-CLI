@@ -3,6 +3,7 @@ package crud;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class UpdateContact {
 
@@ -15,7 +16,6 @@ public class UpdateContact {
             }
             listWithUpdatedUser.add(contact);
         }
-
         return listWithUpdatedUser;
     }
 

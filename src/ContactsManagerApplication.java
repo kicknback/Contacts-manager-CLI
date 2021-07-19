@@ -4,6 +4,7 @@ import crud.ReadContacts;
 import crud.UpdateContact;
 
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
 
 public class ContactsManagerApplication {
@@ -58,11 +59,17 @@ public class ContactsManagerApplication {
             case 5:
                 String userUpdate = FileIO.getString("Enter the user you would like to update");
                 String selection = ReadContacts.searchContact(userUpdate, readFile);
+                int selectionAmount = selection.split("\n").length;
+                System.out.println(selection);
+                if(selectionAmount > 1){
+                    System.out.println("Cannot update multiple records");
+                    break;
+                }
                 if (FileIO.yesNo( selection + "\n\nAre you sure you want to change this record?")) {
-                    System.out.println();
                     List<String> updatedContact = FileIO.addNewContactInput();
                     Contacts updatedPerson = new Contacts(updatedContact.get(0), updatedContact.get(1), updatedContact.get(2), updatedContact.get(3));
-                    List<String> newReadFile = UpdateContact.removeContactFromList(readFile, updatedPerson.getContactInfo().get(0), selection);
+                    List<String> newReadFile = UpdateContact.removeContactFromList(readFile, updatedPerson.getContactInfo().get(0), userUpdate);
+//                    ReadContacts.printOnePerLine(newReadFile);
                     DeleteContact.updateListToFile(newReadFile, filePath);
                 }
                 break;

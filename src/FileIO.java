@@ -18,10 +18,10 @@ public class FileIO {
 
     }
 
-    public static boolean yesNo(String soutValue) {
+    public static boolean yesNo(String prompt) {
         boolean exit = false;
         while (true) {
-            System.out.printf("\n%s ", soutValue);
+            System.out.printf("\n%s ", prompt);
             String input = "";
             input = sc.nextLine();
             if (input.matches("(?i)y|yes|yea|yeah|ya|yep")) {
