@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeleteContact {
-    public static void removeContactFromList (List<String> contactList, String firstName, Path path) {
+    public static void removeContactFromList (List<String> contactList, String name, Path path) {
         List <String> listWithoutDeletedUser = new ArrayList<>();
         for (String contact : contactList){
-            if(contact.toLowerCase().contains(firstName.toLowerCase())){
+            if(contact.toLowerCase().contains(name.toLowerCase())){
                continue;
             }
             listWithoutDeletedUser.add(contact);

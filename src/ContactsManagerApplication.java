@@ -59,10 +59,9 @@ public class ContactsManagerApplication {
                 String userUpdate = FileIO.getString("Enter the user you would like to update");
                 String selection = ReadContacts.searchContact(userUpdate, readFile);
                 if (FileIO.yesNo( selection + "\n\nAre you sure you want to change this record?")) {
-                    System.out.println();
                     List<String> updatedContact = FileIO.addNewContactInput();
                     Contacts updatedPerson = new Contacts(updatedContact.get(0), updatedContact.get(1), updatedContact.get(2), updatedContact.get(3));
-                    List<String> newReadFile = UpdateContact.removeContactFromList(readFile, updatedPerson.getContactInfo().get(0), selection);
+                    List<String> newReadFile = UpdateContact.removeContactFromList(readFile, updatedPerson.getContactInfo().get(0), userUpdate);
                     DeleteContact.updateListToFile(newReadFile, filePath);
                 }
                 break;
