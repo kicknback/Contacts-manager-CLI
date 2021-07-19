@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeleteContact {
+
     public static void removeContactFromList (List<String> contactList, String name, Path path) {
         List <String> listWithoutDeletedUser = new ArrayList<>();
         for (String contact : contactList){
@@ -27,4 +28,5 @@ public class DeleteContact {
             System.out.println("Could not Overwrite to File at: " +path);
         }
     }
+
 }
