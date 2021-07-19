@@ -23,7 +23,7 @@ public class FileIO {
         while (true) {
             System.out.printf("\n%s ", soutValue);
             String input = "";
-            input = sc.next();
+            input = sc.nextLine();
             if (input.matches("(?i)y|yes|yea|yeah|ya|yep")) {
                 exit = true;
                 break;

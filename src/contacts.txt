@@ -3,5 +3,4 @@ Josh | Borreli | 915-969-9696 | 9000 Specific Street, City, 90000
 Per | Son | 915-420-4242 | 4444 Specific Ave, City, 90210
 Josh | Mansion | 348-893-2081 | 456 Example ST. ML, 89374
 Bob | Johnson | 777-777-7777 | 888 blah rd. RI, 37473
-Terry | Johnson | 432-536-2347 | 234 Parker Ln. #242, TX, 78262
-Kool | Aid | 578-094-2929 | 789 ohhh yeaaa dr. CA, 38742
+Jimbo | Crawfish | 987-123-6660 | 2352 Nawlins St, LA, 92384
