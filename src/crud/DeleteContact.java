@@ -11,15 +11,16 @@ public class DeleteContact {
     public static void removeContactFromList (List<String> contactList, String firstName, Path path) {
         List <String> listWithoutDeletedUser = new ArrayList<>();
         for (String contact : contactList){
-            if(contact.contains(firstName)){
+            if(contact.toLowerCase().contains(firstName.toLowerCase())){
                continue;
             }
             listWithoutDeletedUser.add(contact);
         }
+
         updateListToFile(listWithoutDeletedUser, path);
     }
 
-    private static void updateListToFile (List<String> listWithoutSelectedUser, Path path){
+    public static void updateListToFile (List<String> listWithoutSelectedUser, Path path){
         try {
             Files.write(path, listWithoutSelectedUser);
         } catch (IOException e) {
