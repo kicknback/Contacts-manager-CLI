@@ -2,6 +2,7 @@ import crud.AddContact;
 import crud.DeleteContact;
 import crud.ReadContacts;
 import crud.UpdateContact;
+
 import java.nio.file.Path;
 import java.util.List;
 
@@ -19,21 +20,24 @@ public class ContactsManagerApplication {
         System.out.println("\nYou have entered the contacts manager program...");
 
         while (continueProgram) {
-            Path filePath = PathClass.getPath( "src","contacts.txt").toAbsolutePath();
+            Path filePath = PathClass.getPath("src", "contacts.txt").toAbsolutePath();
             List<String> readFile = ReadContacts.readFromFile(filePath);
 
-            switchOptions(filePath, readFile);
-            boolean moreSelections = FileIO.yesNo("Would you like to make another menu selection?");
-            if (!moreSelections) {
-                System.out.println("\nExiting program...");
-                continueProgram = false;
+            if (switchOptions(filePath, readFile)) {
+                boolean moreSelections = FileIO.yesNo("Would you like to make another menu selection?");
+                if (!moreSelections) {
+                    System.out.println("\nExiting program...");
+                    continueProgram = false;
+                }
             }
+            System.out.println("\nExiting program...");
+            continueProgram = false;
         }
-
-
     }
 
-    public static void switchOptions(Path filePath, List<String> readFile) {
+
+    public static boolean switchOptions(Path filePath, List<String> readFile) {
+        boolean continueSwitch = true;
         switch (FileIO.getMenuChoice()) {
             case 1:
                 System.out.println();
@@ -62,7 +66,7 @@ public class ContactsManagerApplication {
                 String userUpdate = FileIO.getString("Enter the user you would like to update");
                 String selection = ReadContacts.searchContact(userUpdate, readFile);
                 int selectionAmount = selection.split("\n").length;
-                if(selectionAmount > 1){
+                if (selectionAmount > 1) {
                     System.out.println("Cannot update multiple records");
                     break;
                 }
@@ -70,7 +74,7 @@ public class ContactsManagerApplication {
                     System.out.println("\nThat user was not found.");
                     break;
                 }
-                if (FileIO.yesNo( selection + "\n\nAre you sure you want to change this record?")) {
+                if (FileIO.yesNo(selection + "\n\nAre you sure you want to change this record?")) {
                     List<String> updatedContact = FileIO.addNewContactInput();
                     Contacts updatedPerson = new Contacts(updatedContact.get(0), updatedContact.get(1), updatedContact.get(2), updatedContact.get(3));
                     List<String> newReadFile = UpdateContact.removeContactFromList(readFile, updatedPerson.getContactInfo().get(0), userUpdate);
@@ -79,9 +83,10 @@ public class ContactsManagerApplication {
                 }
                 break;
             case 6:
+                continueSwitch = false;
                 break;
-
         }
+        return continueSwitch;
     }
 
 }
