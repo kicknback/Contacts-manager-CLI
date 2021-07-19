@@ -1,4 +1,3 @@
-Raul                |   Martinez            |   915-420-6969        |   123 Specific Street, City, 90210
 Josh                |   Borreli             |   915-969-9696        |   9000 Specific Street, City, 90000
 Per                 |   Son                 |   915-420-4242        |   4444 Specific Ave, City, 90210
 Josh                |   Mansion             |   348-893-2081        |   456 Example ST. ML, 89374
@@ -8,6 +7,6 @@ Hugh                |   Mongus              |   244-633-3462        |   789 Kris
 Cynthia             |	Smith	            |	294-234-2325	    |	9898 tweet st. WI, 27322
 John    	        |	Johnny	            |	546-345-2052	    |	111 best rd. OK, 16374
 Aaron               |   George              |   724-245-3626        |   6554 Baker Ln. WY, 82823
-Yarn                |	Ball                |	453-3463            |	7812 Highway way, TX, 23828
+Yarner              |	Bally               |	902-463-2157        |	8923 blah rd, City, VA, 92831
 Jolly               |	Rodger              |	913-234-2351        |	342 Linus Cr. PA, 16504
-Bobbobbobbob        |	Hababababababa      |	345-746-2022        |	blahblahblahblahblah
+Jimberto            |	Albertson           |	345-262-2343        |	9090 Street st. Paddawa CA, 97234

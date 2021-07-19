@@ -43,8 +43,7 @@ public class ContactsManagerApplication {
         switch (FileIO.getMenuChoice()) {
             case 1:
                 System.out.println();
-                System.out.println("First name          |   Last Name           |   Phone #             |   Address\n");
-                System.out.println("--------------------------------------------------------------------------------------------------------------------");
+                columnHeader();
                 ReadContacts.printOnePerLine(readFile);
                 break;
             case 2: //Add Contact
@@ -55,10 +54,16 @@ public class ContactsManagerApplication {
                 break;
             case 3:
                 String userSearch = FileIO.getString("Enter the user you would like to search");
-                System.out.println("\n" + ReadContacts.searchContact(userSearch, readFile));
+                System.out.println();
+                columnHeader();
+                System.out.println(ReadContacts.searchContact(userSearch, readFile));
                 break;
             case 4:
                 String userDelete = FileIO.getString("Enter the user you would like to remove");
+                String selectionDelete = ReadContacts.searchContact(userDelete, readFile);
+                if (isMultipleRecordsOrNotExists(selectionDelete)) {
+                    break;
+                }
                 if (FileIO.yesNo(ReadContacts.searchContact(userDelete, readFile) + "\n\nAre you sure you want to remove this record?")) {
                     DeleteContact.removeContactFromList(readFile, userDelete/*ReadContacts.searchContact(userDelete, readFile)*/, filePath);
                     System.out.println("\n---User removed---");
@@ -66,17 +71,11 @@ public class ContactsManagerApplication {
                 break;
             case 5:
                 String userUpdate = FileIO.getString("Enter the user you would like to update");
-                String selection = ReadContacts.searchContact(userUpdate, readFile);
-                int selectionAmount = selection.split("\n").length;
-                if (selectionAmount > 1) {
-                    System.out.println("Cannot update multiple records");
+                String selectionUpdate = ReadContacts.searchContact(userUpdate, readFile);
+                if (isMultipleRecordsOrNotExists(selectionUpdate)) {
                     break;
                 }
-                if (selection.equalsIgnoreCase("That user was not found.")) {
-                    System.out.println("\nThat user was not found.");
-                    break;
-                }
-                if (FileIO.yesNo(selection + "\n\nAre you sure you want to change this record?")) {
+                if (FileIO.yesNo(selectionUpdate + "\n\nAre you sure you want to change this record?")) {
                     List<String> updatedContact = FileIO.addNewContactInput();
                     Contacts updatedPerson = new Contacts(updatedContact.get(0), updatedContact.get(1), updatedContact.get(2), updatedContact.get(3));
                     List<String> newReadFile = UpdateContact.removeContactFromList(readFile, updatedPerson.getContactInfo().get(0), userUpdate);
@@ -89,6 +88,27 @@ public class ContactsManagerApplication {
                 break;
         }
         return continueSwitch;
+    }
+
+    public static boolean isMultipleRecordsOrNotExists(String selection) {
+        boolean isInValid = false;
+        int selectionAmount = selection.split("\n").length;
+        if (selectionAmount > 1) {
+            System.out.println("\n*** Your search provided multiple results.  Cannot update multiple records at once.  Please specify first and last name for record alteration ***\n".toUpperCase());
+            columnHeader();
+            System.out.println(selection);
+            isInValid = true;
+        }
+        if (selection.equalsIgnoreCase("That user was not found.")) {
+            System.out.println("\nThat user was not found.");
+            isInValid = true;
+        }
+        return isInValid;
+    }
+
+    public static void columnHeader() {
+        System.out.println("First name          |   Last Name           |   Phone #             |   Address");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------");
     }
 
 }
